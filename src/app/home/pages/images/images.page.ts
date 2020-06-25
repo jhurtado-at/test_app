@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPhotoElement } from '../../models/photo-element.interface';
+import { CONSTANTS } from 'src/app/shared/utils/constants';
 
 const TOTAL_ELEMENTS = 4000;
 const INITIAL_TEXT_POSITION = 2;
@@ -17,6 +18,7 @@ export class ImagesPage implements OnInit {
 
   public elements: IPhotoElement[] = [];
   private auxElements: IPhotoElement[];
+  public readonly approximateHeight = CONSTANTS.APPROXIMATE_SCROLL_ELEMENT_HEIGHT;
 
   constructor() {}
 
@@ -37,7 +39,11 @@ export class ImagesPage implements OnInit {
   }
 
   public filterElements(value: string): void {
-    this.elements = this.auxElements.filter((element: IPhotoElement) => element.id.toString() === value || element.text.includes(value));
+    this.elements = this.auxElements.filter((element: IPhotoElement) => this.filterElement(element, value));
+  }
+
+  private filterElement(element: IPhotoElement, value: string): boolean {
+    return element.id.toString() === value || element.text.includes(value);
   }
 
 }

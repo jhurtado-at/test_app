@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IPhotoElement } from '../../models/photo-element.interface';
+import { CONSTANTS } from 'src/app/shared/utils/constants';
 
 const IMAGE_ERROR = './assets/img/no-image.png';
 const VISIBLE = 1;
@@ -17,6 +18,7 @@ export class PhotoElementComponent {
   public photoElement: IPhotoElement;
 
   public loading = false;
+  public elementHeight = CONSTANTS.PHOTO_ELEMENT_HEIGHT;
 
   public errorLoadingImage(): void {
     this.photoElement.photo = IMAGE_ERROR;

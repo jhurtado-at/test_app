@@ -1,6 +1,6 @@
 <app-header (filterElements)="filterElements($event)"></app-header>
 <ion-content>
-  <ion-virtual-scroll [items]="elements" approxItemHeight="500px">
+  <ion-virtual-scroll [items]="elements" [approxItemHeight]="approximateHeight">
     <app-photo-element *virtualItem="let element" [photoElement]="element"></app-photo-element>
   </ion-virtual-scroll>
 </ion-content>
