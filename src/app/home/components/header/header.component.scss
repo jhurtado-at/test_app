@@ -1,0 +1,42 @@
+.header {
+  height: 50px;
+  position: relative;
+
+  .title {
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .search-wrapper {
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+
+    ion-icon {
+      font-size: var(--font-size-15);
+      padding: 15px;
+    }
+  }
+
+  .text-input-wrapper {
+    background: var(--white);
+    border-radius: 7px;
+    box-shadow: var(--box-shadow);
+    left: 15px;
+    opacity: 0;
+    padding: 5px;
+    position: absolute;
+    right: 15px;
+    top: -50px;
+    transition: all 0.20s ease-in-out;
+  }
+
+  .visible {
+    opacity: 1;
+    top: 60px;
+  }
+}

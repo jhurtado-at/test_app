@@ -1,0 +1,19 @@
+<ion-card class="image-card">
+  <div>
+    <div class="loading-wrapper" *ngIf="loading">
+      <ion-spinner></ion-spinner>
+    </div>
+    <ion-img
+      class="image"
+      [ngStyle]="visibility"
+      [src]="photoElement?.photo"
+      height="350"
+      (ionError)="errorLoadingImage()"
+      (ionImgDidLoad)="imageLoaded()"
+      (ionImgWillLoad)="imageWillLoad()"
+    ></ion-img>
+  </div>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center">{{ photoElement?.text }}</ion-card-title>
+  </ion-card-header>
+</ion-card>

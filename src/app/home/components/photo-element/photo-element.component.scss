@@ -1,0 +1,18 @@
+.image-card {
+  height: 400px;
+
+  .loading-wrapper {
+    align-items: center;
+    display: flex;
+    height: 350px;
+  }
+
+  ion-spinner {
+    margin: 0 auto;
+  }
+
+  .image {
+    height: 350px;
+    object-fit: cover;
+  }
+}

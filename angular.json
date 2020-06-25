@@ -111,6 +111,9 @@
                 "input": "src/assets",
                 "output": "/assets"
               }
+            ],
+            "codeCoverageExclude": [
+              "/**/*mock*.ts"
             ]
           },
           "configurations": {
