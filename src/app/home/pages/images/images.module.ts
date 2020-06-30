@@ -22,7 +22,6 @@ import { SharedModule } from '../../../shared/shared.module';
     SharedModule
   ],
   declarations: [ImagesPage],
-  providers: [ElementsInitializerService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ImagesPageModule {}
