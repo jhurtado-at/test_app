@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IPhotoElement } from '../../models/photo-element.interface';
+import { ElementsInitializerService } from '../../services/elements-initializer.service';
 import { CONSTANTS } from 'src/app/shared/utils/constants';
-
-const TOTAL_ELEMENTS = 4000;
-const INITIAL_TEXT_POSITION = 2;
-const TEXT_LENGTH = 10;
-const URL = 'https://picsum.photos/id/{ID_FOTO_INCREMENTAL}/500/500.jpg';
-const REPLACED_STRING = '{ID_FOTO_INCREMENTAL}';
-const RADIX = 36;
 
 @Component({
   selector: 'app-images',
@@ -20,21 +14,16 @@ export class ImagesPage implements OnInit {
   private auxElements: IPhotoElement[];
   public readonly approximateHeight = CONSTANTS.APPROXIMATE_SCROLL_ELEMENT_HEIGHT;
 
-  constructor() {}
+  constructor(
+    private readonly elementsInitializerService: ElementsInitializerService
+  ) {}
 
   ngOnInit() {
     this.generateElements();
   }
 
   private generateElements(): void {
-    for (let i = 0; i < TOTAL_ELEMENTS; i++) {
-      this.elements.push({
-        id: i,
-        photo: URL.replace(REPLACED_STRING, `${i}`),
-        text: Math.random().toString(RADIX).substring(INITIAL_TEXT_POSITION, TEXT_LENGTH)
-      });
-    }
-
+    this.elements = this.elementsInitializerService.initializeElements();
     this.auxElements = [...this.elements];
   }
 

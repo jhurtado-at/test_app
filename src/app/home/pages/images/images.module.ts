@@ -10,6 +10,7 @@ import { ImagesPageRoutingModule } from './images-routing.module';
 import { ImagesPage } from './images.page';
 import { HeaderComponentModule } from '../../components/header/header.module';
 import { PhotoElementComponentModule } from '../../components/photo-element/photo-element.module';
+import { ElementsInitializerService } from '../../services/elements-initializer.service';
 import { SharedModule } from '../../../shared/shared.module';
 
 
@@ -21,6 +22,7 @@ import { SharedModule } from '../../../shared/shared.module';
     SharedModule
   ],
   declarations: [ImagesPage],
+  providers: [ElementsInitializerService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ImagesPageModule {}
